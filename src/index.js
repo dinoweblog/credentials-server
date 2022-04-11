@@ -9,6 +9,9 @@ const app = express();
 
 app.use(express.json());
 
+// use the express-static middleware
+app.use(express.static("public"));
+
 app.post("/register", register);
 app.post("/login", login);
 
