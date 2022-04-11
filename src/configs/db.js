@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
 module.exports = () => {
-  return mongoose.connect("mongodb://localhost:27017/web13-authentication");
+  return mongoose.connect(
+    "mongodb+srv://dinesh:dinesh@cluster0.qhbqm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  );
 };
