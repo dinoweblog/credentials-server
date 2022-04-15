@@ -2,7 +2,7 @@ const express = require("express");
 
 const passport = require("./configs/passport");
 
-const { register, login } = require("./controllers/auth.controller");
+const { register, login, profile } = require("./controllers/auth.controller");
 const productController = require("./controllers/product.controller");
 
 const app = express();
@@ -14,6 +14,7 @@ app.use(express.static("public"));
 
 app.post("/register", register);
 app.post("/login", login);
+app.get("/user/:id", profile);
 
 app.use(passport.initialize());
 
