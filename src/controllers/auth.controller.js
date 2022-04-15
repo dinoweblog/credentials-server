@@ -69,13 +69,21 @@ const login = async (req, res) => {
 
 const profile = async (req, res) => {
   try {
-    const user = await User.findById(req.params.id);
-
+    const users = await User.findById(req.params.id);
+    const user = {
+      name: users.name,
+      email: users.email,
+      gender: users.gender,
+      mobile: users.mobile,
+      id: users._id,
+      token: users.token
+    };
     return res.status(201).send(user);
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
 };
+
 
 module.exports = { register, login, profile, newToken };
 
